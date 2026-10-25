@@ -6,6 +6,7 @@ Site estático de uma página. Não tem build, não tem dependência, não tem f
 - `index.html` — a página inteira (HTML, CSS e JS num arquivo só)
 - `img/` — fotos e certificados já otimizados para web
 - `curriculo-victoria-boese.pdf` — currículo que o botão entrega
+- `og-victoria-boese.jpg` — imagem de preview quando o link e compartilhado
 - `vercel.json` — cache das imagens
 
 ## Publicar na Vercel
@@ -31,3 +32,8 @@ Não substitua por uma cópia do PDF original: ele contém o CPF completo.
 ## Tema
 O site é escuro por decisão de projeto e não acompanha o tema do sistema.
 A paleta inteira está no bloco `:root` no topo do `<style>` em `index.html`.
+
+## Importante
+O `index.html` e um documento HTML completo, com `<head>`, `<meta viewport>`
+e as tags Open Graph. Nao remova o cabecalho: sem a meta viewport o celular
+renderiza a versao desktop encolhida.
