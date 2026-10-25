@@ -27,3 +27,7 @@ Tudo está em `index.html`, em português, nas seções `#sobre`,
 ## Atenção
 O certificado do SENAR em `img/cert-senar.jpg` está com o CPF removido.
 Não substitua por uma cópia do PDF original: ele contém o CPF completo.
+
+## Tema
+O site é escuro por decisão de projeto e não acompanha o tema do sistema.
+A paleta inteira está no bloco `:root` no topo do `<style>` em `index.html`.
