@@ -1,0 +1,436 @@
+<title>Victoria Boese</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..500&display=swap">
+<style>
+/* Layout: scroll editorial de coluna única; faixas de largura total com wrapper interno de 1120px;
+   dispositivo estrutural = ficha de campo (registro numerado, datas alinhadas à direita). */
+:root{
+  --paper:#E9E9E0; --surface:#F3F3EC; --surface-2:#DEDFD3;
+  --ink:#191C14; --ink-soft:#5B6150; --ink-faint:#878D78;
+  --line:#CDD0C2; --lime:#59790F; --lime-ink:#59790F; --clay:#9A4C28;
+  --shadow:0 1px 2px rgba(25,28,20,.06), 0 8px 24px rgba(25,28,20,.07);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#111309; --surface:#191C12; --surface-2:#232719;
+  --ink:#E9E8DC; --ink-soft:#9FA68F; --ink-faint:#757C66;
+  --line:#2C3122; --lime:#B6D133; --lime-ink:#C6DE5C; --clay:#D47A4F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#111309; --surface:#191C12; --surface-2:#232719;
+  --ink:#E9E8DC; --ink-soft:#9FA68F; --ink-faint:#757C66;
+  --line:#2C3122; --lime:#B6D133; --lime-ink:#C6DE5C; --clay:#D47A4F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--paper)}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:500}
+
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(44px,7vw,86px)}
+.hair{height:1px;background:var(--line)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:11px}
+.nav-name{font-family:"Newsreader",Georgia,serif;font-size:17px;letter-spacing:-.2px;white-space:nowrap}
+.nav-links{display:flex;gap:20px;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft)}
+.nav-links a{text-decoration:none;padding-block:4px;border-bottom:1px solid transparent}
+.nav-links a:hover{color:var(--ink);border-bottom-color:var(--lime)}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--lime)}
+h1{font-family:"Newsreader",Georgia,serif;font-size:clamp(40px,7.2vw,72px);line-height:.98;letter-spacing:-.025em;font-weight:400;margin-top:16px}
+h1 em{font-style:italic;color:var(--lime-ink)}
+.lead{font-size:clamp(16px,1.6vw,18.5px);color:var(--ink-soft);max-width:46ch;margin-top:20px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:2px;font-size:14.5px;font-weight:600;text-decoration:none;border:1px solid var(--ink);transition:transform .15s ease,background .15s ease,color .15s ease;cursor:pointer;font-family:inherit}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-solid:hover{background:var(--lime);border-color:var(--lime);color:#111309}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn:active{transform:translateY(1px)}
+.hero-fig{position:relative}
+.hero-fig img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:2px;box-shadow:var(--shadow)}
+.hero-cap{font-size:11.5px;color:var(--ink-faint);margin-top:9px;letter-spacing:.03em}
+
+/* stats */
+.stats{background:var(--surface);border-block:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:4px 24px;padding-block:26px}
+@media(max-width:720px){.stats .wrap{grid-template-columns:repeat(2,1fr);gap:22px 20px}}
+.stat{min-width:0}
+.stat b{display:block;font-family:"Newsreader",Georgia,serif;font-size:clamp(26px,3.4vw,36px);font-weight:400;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat span{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
+
+/* section heads */
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.shead .num{font-size:11.5px;letter-spacing:.14em;color:var(--lime-ink);font-variant-numeric:tabular-nums;font-weight:600}
+.shead h2{font-family:"Newsreader",Georgia,serif;font-size:clamp(25px,3.4vw,34px);font-weight:400;letter-spacing:-.02em}
+.shead .fill{flex:1;height:1px;background:var(--line);min-width:20px}
+
+/* sobre */
+.sobre .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,56px);align-items:start}
+@media(max-width:860px){.sobre .grid{grid-template-columns:1fr}}
+.sobre img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;box-shadow:var(--shadow)}
+.prose p{margin:0 0 17px;max-width:62ch}
+.prose p:last-child{margin-bottom:0}
+.prose .big{font-family:"Newsreader",Georgia,serif;font-size:clamp(20px,2.4vw,25px);line-height:1.42;color:var(--ink);font-weight:300}
+.prose p{color:var(--ink-soft)}
+
+/* timeline */
+.rec{display:grid;grid-template-columns:62px 1fr auto;gap:18px;padding:20px 0;border-top:1px solid var(--line);align-items:baseline}
+.rec:last-child{border-bottom:1px solid var(--line)}
+@media(max-width:620px){.rec{grid-template-columns:44px 1fr;gap:12px}.rec .when{grid-column:2;margin-top:2px}}
+.rec .tag{font-size:11px;letter-spacing:.1em;color:var(--lime-ink);font-variant-numeric:tabular-nums;border:1px solid var(--line);border-radius:2px;padding:3px 0;text-align:center;font-weight:600;align-self:start;background:var(--surface)}
+.rec h3{font-size:17.5px;font-weight:600;letter-spacing:-.01em}
+.rec .org{font-size:14px;color:var(--ink-soft);margin-top:3px}
+.rec .desc{font-size:14.5px;color:var(--ink-soft);margin-top:8px;max-width:58ch}
+.rec .when{font-size:13px;color:var(--ink-faint);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media(max-width:860px){.gal{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.gal{grid-template-columns:repeat(2,1fr);gap:8px}}
+.shot{position:relative;margin:0;grid-column:span 2;cursor:zoom-in;overflow:hidden;border-radius:2px;background:var(--surface-2)}
+.shot.wide{grid-column:span 3}
+@media(max-width:860px){.shot,.shot.wide{grid-column:span 2}}
+.shot img{width:100%;height:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.shot.wide img{aspect-ratio:4/3}
+.shot:hover img{transform:scale(1.035)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 11px;font-size:12px;line-height:1.35;color:#F2F2EA;background:linear-gradient(to top,rgba(10,12,7,.82),rgba(10,12,7,0));letter-spacing:.01em}
+.shot:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+
+/* certificados */
+.certs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){.certs{grid-template-columns:1fr}}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.cert .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.cert .hrs{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--lime-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cert h3{font-size:17px;font-weight:600;line-height:1.3}
+.cert .inst{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.cert ul{margin:0;padding-left:17px;font-size:14px;color:var(--ink-soft)}
+.cert li{margin-bottom:5px}
+.cert .foot{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:12.5px}
+.linkish{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--lime);padding-bottom:1px;font-weight:500;background:none;border-left:0;border-right:0;border-top:0;cursor:pointer;font-family:inherit;font-size:inherit}
+.linkish:hover{color:var(--lime-ink)}
+
+/* contato */
+.contato{background:var(--surface);border-top:1px solid var(--line)}
+.ctt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:start}
+@media(max-width:800px){.ctt{grid-template-columns:1fr}}
+.field{border-top:1px solid var(--line);padding:14px 0;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}
+.field .k{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.field .v{font-size:15.5px;word-break:break-word}
+.copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);padding:5px 10px;border-radius:2px;cursor:pointer;font-family:inherit}
+.copy:hover{border-color:var(--lime);color:var(--ink)}
+.note{font-size:13px;color:var(--ink-faint);margin-top:14px;max-width:46ch}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:12.5px;color:var(--ink-faint)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(10,12,7,.94);display:flex;align-items:center;justify-content:center;padding:max(18px,env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) max(18px,env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+.lb img{max-width:100%;max-height:82vh;object-fit:contain;border-radius:2px}
+.lb .cap{position:absolute;left:0;right:0;bottom:max(14px,env(safe-area-inset-bottom,0px));text-align:center;color:#D9DACF;font-size:12.5px;padding-inline:20px}
+.lb .x{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));background:none;border:1px solid rgba(240,240,230,.35);color:#F0F0E6;width:38px;height:38px;border-radius:50%;font-size:19px;cursor:pointer;line-height:1;font-family:inherit}
+.lb .x:hover{border-color:#F0F0E6}
+
+.msg{font-size:13px;color:var(--clay);margin-top:10px}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+
+/* reveal (só liga quando o JS roda; estado em repouso é visível) */
+body.anim .rv:not(.in){opacity:.001;transform:translateY(16px)}
+body.anim .rv{transition:opacity .62s ease,transform .62s cubic-bezier(.2,.7,.3,1)}
+@media(prefers-reduced-motion:reduce){body.anim .rv:not(.in){opacity:1;transform:none}.shot img{transition:none}.btn{transition:none}}
+</style>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="nav-name">Victoria Boese</span>
+    <div class="nav-links">
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#campo">Campo</a>
+      <a href="#formacao">Certificações</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero band">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Belo Horizonte, MG <span class="dot"></span> Graduanda em Medicina Veterinária <span class="dot"></span> Formação 2028</p>
+      <h1>Victoria Boese<br>Ribas <em>Pereira</em></h1>
+      <p class="lead">Formação voltada a animais de grande porte, com prática de curral certificada em campo: contenção, brincagem, pesagem e mochação.</p>
+      <div class="cta">
+        <a class="btn btn-solid" href="https://wa.me/5531999512502" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" id="cv-btn" href="curriculo-victoria-boese.pdf" download="Curriculo-Victoria-Boese-Ribas-Pereira.pdf">Baixar currículo (PDF)</a>
+      </div>
+      <p class="msg" id="cv-msg" hidden></p>
+    </div>
+    <figure class="hero-fig" style="margin:0">
+      <img src="img/hero-nelore.jpg" alt="Victoria agachada ao lado de um bovino Nelore deitado na baia de uma exposição">
+      <figcaption class="hero-cap">Nelore — exposição agropecuária</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><b>6º</b><span>Período</span></div>
+    <div class="stat"><b>184 h</b><span>Formação técnica certificada</span></div>
+    <div class="stat"><b>19 h</b><span>Práticas em cria e recria</span></div>
+    <div class="stat"><b>2028</b><span>Conclusão prevista</span></div>
+  </div>
+</section>
+
+<section class="band sobre rv" id="sobre">
+  <div class="wrap">
+    <div class="shead"><span class="num">01</span><h2>A trajetória</h2><span class="fill"></span></div>
+    <div class="grid">
+      <img src="img/retrato.jpg" alt="Retrato de Victoria com o jaleco do curso de Medicina Veterinária do UniBH">
+      <div class="prose">
+        <p class="big">Vim de Curitiba para Belo Horizonte para cursar Medicina Veterinária com uma certeza: queria trabalhar com animais de grande porte.</p>
+        <p>O cavalo foi o que me aproximou do campo primeiro. Os bovinos vieram pelo trabalho de curral, no treinamento do SENAR em Felixlândia: três dias de cria e recria de bezerras, com contenção, brincagem, pesagem e mochação feitas por mim. É onde a minha prática está mais concentrada hoje.</p>
+        <p>Entre equinos e bovinos eu ainda não escolhi um lado, e não tenho pressa nisso. As duas frentes somam na mesma base de manejo, sanidade e produção. O porte do animal é que já está definido.</p>
+        <p>Antes e ao lado disso, três frentes que continuam a me formar: um projeto de extensão com fauna silvestre no CAPAS, a rotina do Hospital Veterinário do UniBH e o atendimento no hospital veterinário público da instituição, onde o volume e a diversidade de casos ensinam rápido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band rv" id="trajetoria">
+  <div class="wrap">
+    <div class="shead"><span class="num">02</span><h2>Formação e prática</h2><span class="fill"></span></div>
+
+    <div class="rec">
+      <span class="tag">01</span>
+      <div><h3>Atendimento clínico — Hospital Veterinário Público</h3>
+        <p class="org">UniBH · Belo Horizonte, MG</p>
+        <p class="desc">Prática em atendimento ao público e rotina de consultório em serviço veterinário público.</p></div>
+      <span class="when">desde out 2026</span>
+    </div>
+
+    <div class="rec">
+      <span class="tag">02</span>
+      <div><h3>Treinamento em cria e recria de bezerras</h3>
+        <p class="org">SENAR Minas · Felixlândia, MG</p>
+        <p class="desc">24 h, sendo 19 h práticas: contenção, identificação por brincos, pesagem, mochação, alimentação até a desmama e aplicação de medicamentos pelas principais vias.</p></div>
+      <span class="when">mai 2025</span>
+    </div>
+
+    <div class="rec">
+      <span class="tag">03</span>
+      <div><h3>Hospital Veterinário UniBH</h3>
+        <p class="org">UniBH · Belo Horizonte, MG</p>
+        <p class="desc">Acompanhamento da rotina hospitalar veterinária.</p></div>
+      <span class="when">desde set 2024</span>
+    </div>
+
+    <div class="rec">
+      <span class="tag">04</span>
+      <div><h3>Zootecnia de Ruminantes — 160 h</h3>
+        <p class="org">UniBH · certificação em Gerente de Manejo e Produção de Ruminantes</p>
+        <p class="desc">Bem-estar animal na produção de ruminantes, sustentabilidade na produção animal e gestão de sistemas de produção.</p></div>
+      <span class="when">jul 2024</span>
+    </div>
+
+    <div class="rec">
+      <span class="tag">05</span>
+      <div><h3>Projeto de extensão — CAPAS</h3>
+        <p class="org">Centro de Acolhimento Provisório de Animais Silvestres · UniBH</p>
+        <p class="desc">Manejo e cuidado de fauna silvestre em centro de acolhimento provisório.</p></div>
+      <span class="when">mar – mai 2024</span>
+    </div>
+  </div>
+</section>
+
+<section class="band rv" id="campo">
+  <div class="wrap">
+    <div class="shead"><span class="num">03</span><h2>No campo</h2><span class="fill"></span></div>
+    <div class="gal">
+      <figure class="shot wide" tabindex="0"><img src="img/pratica-mochacao.jpg" alt="Victoria ajoelhada contendo uma bezerra e aplicando o ferro de mochação"><figcaption>Mochação — treinamento SENAR, Felixlândia</figcaption></figure>
+      <figure class="shot wide" tabindex="0"><img src="img/pratica-brinco.jpg" alt="Grupo de alunas aplicando brinco de identificação em uma bezerra contida"><figcaption>Identificação por brinco e contenção</figcaption></figure>
+      <figure class="shot" tabindex="0"><img src="img/pratica-caprino.jpg" alt="Victoria e colegas contendo um caprino em aula prática"><figcaption>Aula prática — contenção</figcaption></figure>
+      <figure class="shot" tabindex="0"><img src="img/equino-campo.jpg" alt="Victoria com um cavalo baio junto à porteira de um piquete"><figcaption>Equinos</figcaption></figure>
+      <figure class="shot" tabindex="0"><img src="img/silvestre-serpente.jpg" alt="Victoria segurando uma serpente de grande porte em um evento de fauna silvestre"><figcaption>Fauna silvestre</figcaption></figure>
+      <figure class="shot" tabindex="0"><img src="img/equino-close.jpg" alt="Victoria acariciando a cabeça de um cavalo branco"><figcaption>Manejo de equinos</figcaption></figure>
+      <figure class="shot" tabindex="0"><img src="img/bufalo.jpg" alt="Victoria montada em um búfalo durante um evento"><figcaption>Bubalinos</figcaption></figure>
+      <figure class="shot" tabindex="0"><img src="img/feira-noite.jpg" alt="Victoria apoiada na cerca de uma pista de julgamento em exposição agropecuária"><figcaption>Exposição agropecuária</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band rv" id="formacao">
+  <div class="wrap">
+    <div class="shead"><span class="num">04</span><h2>Certificações</h2><span class="fill"></span></div>
+    <div class="certs">
+      <article class="cert">
+        <div class="top"><h3>Gerente de Manejo e Produção de Ruminantes</h3><span class="hrs">160 h</span></div>
+        <p class="inst">Unidade curricular “Zootecnia de Ruminantes” — Centro Universitário de Belo Horizonte · julho de 2024</p>
+        <ul>
+          <li>Fomentar o bem-estar animal na produção de ruminantes</li>
+          <li>Atuar em prol da sustentabilidade do meio ambiente na produção animal</li>
+          <li>Gerenciar sistemas de produção de ruminantes de acordo com as demandas e tendências de mercado</li>
+        </ul>
+        <div class="foot">
+          <button class="linkish" type="button" data-cert="img/cert-unibh.jpg" data-cap="Certificado UniBH — Zootecnia de Ruminantes, 160 h">Ver certificado</button>
+          <a class="linkish" href="https://cloudapp.animaeducacao.com.br/validador-documento/?code=960c47064c4a4811883f2bca18272e7b" target="_blank" rel="noopener">Validar autenticidade</a>
+        </div>
+      </article>
+
+      <article class="cert">
+        <div class="top"><h3>Trabalhador da Pecuária (Bovinos de Leite) / Vaqueiro — Cria e Recria de Bezerras</h3><span class="hrs">24 h</span></div>
+        <p class="inst">SENAR Minas — Felixlândia, MG · maio de 2025 · 19 h práticas · CBO 6231-15</p>
+        <ul>
+          <li>Cuidados com a vaca e o bezerro ao parto; bezerras recém-nascidas</li>
+          <li>Práticas zootécnicas: contenção, brincagem, pesagem e mochação</li>
+          <li>Alimentação até a desmama e aplicação de medicamentos</li>
+          <li>Escrituração zootécnica e higienização das instalações</li>
+        </ul>
+        <div class="foot">
+          <button class="linkish" type="button" data-cert="img/cert-senar.jpg" data-cap="Certificado SENAR Minas — Cria e recria de bezerras, 24 h · registro nº 1558927">Ver certificado</button>
+          <span style="color:var(--ink-faint)">Registro nº 1558927</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contato band rv" id="contato">
+  <div class="wrap">
+    <div class="shead"><span class="num">05</span><h2>Contato</h2><span class="fill"></span></div>
+    <div class="ctt">
+      <div>
+        <div class="field"><span class="k">WhatsApp</span><a class="btn btn-solid" href="https://wa.me/5531999512502" target="_blank" rel="noopener" style="padding:9px 16px;font-size:13.5px">Abrir conversa</a></div>
+        <div class="field"><span class="k">E-mail</span><span class="v" id="mail">victoriaboesep@gmail.com</span><button class="copy" type="button" id="copy-mail">Copiar</button></div>
+        <div class="field"><span class="k">Instagram</span><a class="v linkish" href="https://instagram.com/vic_boese" target="_blank" rel="noopener">@vic_boese</a></div>
+        <div class="field" style="border-bottom:1px solid var(--line)"><span class="k">Currículo</span><button class="copy" type="button" id="cv-btn-2" style="font-size:12px">Baixar PDF</button></div>
+      </div>
+      <div>
+        <p class="note">Disponível para estágio em grandes animais em Minas Gerais: equinos, pecuária de corte e de leite, propriedades rurais e clínica.</p>
+        <p class="note">Estudante de Medicina Veterinária — ainda sem registro no CRMV. Não realiza atendimento veterinário de forma autônoma.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Victoria Boese Ribas Pereira · Belo Horizonte, MG</span>
+    <span>Medicina Veterinária · UniBH · turma 2028</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- lightbox ---------- */
+  var lb = null;
+  function openLb(src, cap){
+    closeLb();
+    lb = document.createElement("div");
+    lb.className = "lb";
+    lb.innerHTML = '<button class="x" type="button" aria-label="Fechar">&times;</button>';
+    var img = document.createElement("img");
+    img.src = src; img.alt = cap || "";
+    lb.appendChild(img);
+    if (cap){ var c = document.createElement("div"); c.className = "cap"; c.textContent = cap; lb.appendChild(c); }
+    lb.addEventListener("click", function(e){ if (e.target === lb || e.target.className === "x") closeLb(); });
+    document.body.appendChild(lb);
+    lb.querySelector(".x").focus();
+  }
+  function closeLb(){ if (lb){ lb.remove(); lb = null; } }
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeLb(); });
+
+  Array.prototype.forEach.call(document.querySelectorAll(".shot"), function(fig){
+    function go(){
+      var i = fig.querySelector("img"), cp = fig.querySelector("figcaption");
+      openLb(i.getAttribute("src"), cp ? cp.textContent : "");
+    }
+    fig.addEventListener("click", go);
+    fig.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " "){ e.preventDefault(); go(); } });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-cert]"), function(b){
+    b.addEventListener("click", function(){ openLb(b.getAttribute("data-cert"), b.getAttribute("data-cap")); });
+  });
+
+  /* ---------- copiar e-mail ---------- */
+  var cm = document.getElementById("copy-mail");
+  cm.addEventListener("click", function(){
+    var txt = document.getElementById("mail").textContent.trim();
+    function done(){ cm.textContent = "Copiado"; setTimeout(function(){ cm.textContent = "Copiar"; }, 1800); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, select);
+    } else { select(); }
+    function select(){
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("mail"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      cm.textContent = "Selecionado";
+      setTimeout(function(){ cm.textContent = "Copiar"; }, 1800);
+    }
+  });
+
+  /* ---------- currículo ---------- */
+  var PDF = "curriculo-victoria-boese.pdf";
+  var msg = document.getElementById("cv-msg");
+  function say(t){ if (!msg) return; msg.textContent = t; msg.hidden = !t; }
+
+  function hostedDownload(){
+    var a = document.createElement("a");
+    a.href = PDF; a.download = "Curriculo-Victoria-Boese-Ribas-Pereira.pdf";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  function saveCv(e){
+    if (!window.claude || typeof window.claude.use !== "function"){
+      if (e) { /* link normal resolve */ }
+      return true; // deixa o navegador seguir o link / navega
+    }
+    if (e && e.preventDefault) e.preventDefault();
+    say("Preparando o arquivo…");
+    window.claude.use("downloads").then(function(d){
+      if (!d){ say("O download não está disponível nesta visualização."); return; }
+      return fetch(PDF).then(function(r){ return r.blob(); }).then(function(blob){
+        return d.save({ filename: "Curriculo-Victoria-Boese-Ribas-Pereira.pdf", data: blob });
+      }).then(function(){ say(""); });
+    }).catch(function(err){
+      var code = err && err.code;
+      if (code === "declined") say("");
+      else say("Não foi possível baixar agora. Tente novamente.");
+    });
+    return false;
+  }
+
+  var b1 = document.getElementById("cv-btn");
+  b1.addEventListener("click", function(e){ saveCv(e); });
+  var b2 = document.getElementById("cv-btn-2");
+  b2.addEventListener("click", function(e){
+    if (!window.claude || typeof window.claude.use !== "function"){ hostedDownload(); return; }
+    saveCv(e);
+  });
+
+  /* ---------- reveal ---------- */
+  var rv = document.querySelectorAll(".rv");
+  if (rv.length && "IntersectionObserver" in window){
+    document.body.classList.add("anim");
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.04 });
+    Array.prototype.forEach.call(rv, function(el){ io.observe(el); });
+    setTimeout(function(){ Array.prototype.forEach.call(rv, function(el){ el.classList.add("in"); }); }, 1500);
+  }
+})();
+</script>
